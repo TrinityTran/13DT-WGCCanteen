@@ -1,76 +1,68 @@
-<?php include ('process.php') ?>
+<?php
 
+$con = mysqli_connect("localhost", "tranmi", "badcake86", "tranmi_canteen");
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL:" .mysqli_connect_error(); die();
+}
+
+else{
+    echo"connect to database";
+}
+?>
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> WGC Canteen Home</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="WGCCanteenHome.css">
 </head>
 
-<body>
-<nav class ="navbar navbar-expand-lg navbar-dar bg-dark">
-    <div class="container">
-        <img src=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="background_img">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-canteen">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                    aria-label="Toggler navigator">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="index.php">
+                <img class="nav-image" width="auto" alt="WGC logo" src="WGC_Logo_Transparent_RGB.png">
+            </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav justify-content-end">
-                <li class="nav-item-active">
-                    <a class="nav-link active" href="index.php"> Home</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item-navactive">
+                        <a class="nav-title" href="index.php">Home</a>
+                    </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
-                       aria-haspopup="true" aria-expanded="false">Menu</a>
-                    <div class="dropdown-item">
-                        <a class="dropdown-item" href="Menu.php">Lunch</a>
-                        <a class="dropdown-item" href="">Desert</a>
-                        <a class="dropdown-item" href="">Drinks</a>
-                    </div>
-                </li>
+                    <li class="nav-item hover">
+                        <a class="nav-title" href="Menu.php">Menu</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="AboutUs.php"> About us</a>
-                </li>
+                    <li class="nav-item hover">
+                        <a class="nav-title" href="AboutUs.php">About Us</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="Order.php"> Sign up</a>
-                </li>
-            </ul>
+                    <li class="nav-item hover">
+                        <a class="nav-title" href="Order.php">Order</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
 
-    <form method="post" action="register.php" id="register_form">
-        <h1>Register</h1>
-        <div <?php if (isset($name_error)): ?> class="form_error" <?php endif ?> >
-            <input type="text" name="username" placeholder="Username" value="<?php echo $usernmae; ?>">
-            <?php if (isset($name_error)): ?>
-                <span><?php echo $name_error; ?></span>
-            <?php endif ?>
-        </div>
-        <div <?php if(isset($email_error)): ?> class="form_error" <?php endif ?> >
-            <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" >
-            <?php if (isset($email)): ?>
-            <span><?php echo $email_error; ?></span>
-            <?php endif ?>
-        </div>
-        <div>
-            <input type="password" placeholder="Password" name="password">
-        </div>
-        <div>
-            <button type="submit" name="register" id="reg_btn">Register</button>
-        </div>
+<main>
+    <form name="order_form" id="order_form" method="get" action="order.php">
+        <select id = "Order" name="order">
+            <?php
+            while ($all_order_record = )
+            ?>
+        </select>
     </form>
-</body>
-</html>
+</main>
